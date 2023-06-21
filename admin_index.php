@@ -18,12 +18,8 @@ if(isset($_SESSION['id'])){ ?>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <h1>Welcome &nbsp; <?php echo $_SESSION['fname']?></h1>
-    <?php
-        if(isset($_SESSION['id'])){?>
-            <a href="admin_logout.php">Logout</a>
-        <?php }
-    ?>
+    <h1>Welcome &nbsp; <?php echo $_SESSION['fname']?></h1><br>
+    <a href="admin_logout.php">Logout</a>
     <br><br>
     <?php
         $sql = "SELECT * FROM users";
