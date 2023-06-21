@@ -43,5 +43,6 @@ if(isset($_POST['login'])){
         <input type="password" name="pass" required><br><br>
         <button type="submit" name="login">Login</button>
     </form>
+    <a href="admin.index.php">Wants to view inside?</a>
 </body>
 </html>

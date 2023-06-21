@@ -72,7 +72,8 @@ if(isset($_SESSION['id'])){ ?>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <h1>Guest</h1>
+    <h1>Guest</h1><br><br>
+    <a href="admin.login.php">Wants to login?</a>
 </body>
 </html>
 
