@@ -1,0 +1,10 @@
+Company System
+
+Having 2 account roles,
+Admin and Users
+
+in Admin functions = CRUD
+
+in Users functions = Read and Update(Their own account)
+
+User's can't edit the other data but they can view it, the only thing that he can edit is his own account
