@@ -73,7 +73,7 @@ if(isset($_SESSION['id'])){ ?>
 </head>
 <body>
     <h1>Guest</h1><br><br>
-    <a href="admin.login.php">Wants to login?</a>
+    <a href="admin_login.php">Wants to login?</a>
 </body>
 </html>
 

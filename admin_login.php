@@ -41,8 +41,9 @@ if(isset($_POST['login'])){
         <input type="text" name="user" required><br><br>
         <Label>Password</Label>
         <input type="password" name="pass" required><br><br>
-        <button type="submit" name="login">Login</button>
+        <button type="submit" name="login">Login</button><br><br>
     </form>
-    <a href="admin.index.php">Wants to view inside?</a>
+    <a href="admin_index.php">View inside?</a><br><br>
+    <a href="user_login.php">Login as user?</a>
 </body>
 </html>
