@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
 
     if($data > 0){
         $_SESSION['id'] = $rows['id'];
-        $_SESSION['full_name'] = $rows['first_name'] && $rows['last_name'];
+        $_SESSION['fname'] = $rows['first_name'];
         header("location: user_index.php"); 
     } else { ?>
         <script>
