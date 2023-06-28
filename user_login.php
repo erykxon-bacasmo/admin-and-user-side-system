@@ -47,5 +47,11 @@ if(isset($_POST['login'])){
         <input type="password" name="pass" required><br><br>
         <button type="submit" name="login">Login</button><br><br>
     </form>
+    <div>
+        <h4>Doesn't have account? <a href="user_create.php">Create Here!</a></h4>
+    </div>
+    <div>
+        <h4>Log in as admin? <a href="admin_login.php">Login Here</a></h4>
+    </div>
 </body>
 </html>
