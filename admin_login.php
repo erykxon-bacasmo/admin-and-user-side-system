@@ -44,6 +44,8 @@ if(isset($_POST['login'])){
         <button type="submit" name="login">Login</button><br><br>
     </form>
     <a href="admin_index.php">View inside?</a><br><br>
-    <a href="user_login.php">Login as user?</a>
+    <div>
+        <h4>Log in as user? <a href="user_login.php">Login Here</a></h4>
+    </div>
 </body>
 </html>
