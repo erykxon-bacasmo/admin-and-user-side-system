@@ -19,8 +19,7 @@ if(isset($_SESSION['id'])){ ?>
     </head>
     <body>   
         <h1>Company System</h1><br><br>
-        <h5>Welcome &nbsp; <?php echo $_SESSION['fname']?></h5>&nbsp;
-        <a href="user_logout.php">Logout</a><br><br>
+        <h4><?php echo $_SESSION['fname']?> <a href="user_logout.php">Logout</a><br><br></h4>
         <table>
             <thead>
                 <tr>
@@ -41,7 +40,14 @@ if(isset($_SESSION['id'])){ ?>
                             <td><?php echo $rows['gender']?></td>
                             <td><?php echo $rows['work_role']?></td>
                             <td>
-                                <a href="#">View</a>
+                                <!-- <?php 
+                                    if($rows['id'] == $_SESSION['id']){?>
+                                        <a href="user_profile.php?id=<?php echo $_SESSION['id']?>">View</a>
+                                    <?php } else { ?>
+                                        <h5>Not Edittable</h5>
+                                    <?php }
+                                ?> -->
+                                <a href="user_profile.php?id=<?php echo $rows['id']?>">View</a>
                             </td>
                         </tr>
                     <?php }
