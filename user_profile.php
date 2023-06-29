@@ -53,6 +53,30 @@ if(isset($_SESSION['id'])){ ?>
             <input type="number" name="mobnum" value="<?php echo $rows['mobile_no']?>" readonly><br><br>
         </form>
     </div>
+
+    <!-- edit info -->
+    <?php
+    if(isset($_POST['edit'])){
+        $user = $_POST['user'];
+        $pass = $_POST['pass'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $age = $_POST['age'];
+        $gender = $_POST['gender'];
+        $loc = $_POST['address'];
+        $work = $_POST['work_role'];
+        $mobnum = $_POST['mobnum'];
+    
+        $sql = "UPDATE users SET `first_name` = '$fname', `last_name` = '$lname', `age` = '$age', `gender` = '$gender', `address` = '$loc', `work_role` = '$work', `mobile_no` = '$mobnum', `username` = '$user', `pass` = '$pass' WHERE id = '$id'";
+        $conn->query($sql);
+    
+        echo"<script>alert('Edit Successfully!');</script>";
+        // echo"<script>window.location = 'user_profile.php'</script>";
+        header("location: user_profile.php?id=" .$id);
+    
+    }
+    
+    ?>
     <div class="edit-modal" id="edit-popup">
         <div class="edit-content">
             <h1>Edit Profile</h1><br><br>
@@ -68,8 +92,9 @@ if(isset($_SESSION['id'])){ ?>
                 <Label>Age</Label>
                 <input type="number" name="age" value="<?php echo $rows['age']?>" required><br><br>
                 <Label>Gender</Label>
-                 <select name="" id="">
-                    
+                 <select name="gender" <?php echo $rows['gender']?> required>
+                    <option value="Male" <?php echo($rows['gender']== "Male")? 'selected': '';?>>Male</option>
+                    <option value="Female" <?php echo($rows['gender']== "Female")? 'selected': '';?>>Female</option>
                  </select><br><br>
                 <Label>Address</Label>
                 <input type="text" name="address" value="<?php echo $rows['address']?>" required><br><br>
@@ -77,6 +102,7 @@ if(isset($_SESSION['id'])){ ?>
                 <input type="text" name="work_role" value="<?php echo $rows['work_role']?>" required><br><br>
                 <Label>Mobile #</Label>
                 <input type="number" name="mobnum" value="<?php echo $rows['mobile_no']?>" required><br><br>
+                <button type="submit" name="edit">Edit</button>
             </form>
         </div>
     </div>
