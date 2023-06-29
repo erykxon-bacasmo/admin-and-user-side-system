@@ -8,7 +8,7 @@ $result = $conn->query($sql);
 session_start();
 
 if(isset($_SESSION['id'])){ ?>
-
+<!-- if the user get's log in -->
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -64,7 +64,8 @@ if(isset($_SESSION['id'])){ ?>
     </html>
 
 <?php } else {?>
-    
+
+<!-- if there is no user's login -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
