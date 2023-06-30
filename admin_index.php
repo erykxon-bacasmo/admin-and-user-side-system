@@ -45,7 +45,7 @@ if(isset($_SESSION['id'])){ ?>
                             <td><?php echo $rows['gender']?></td>
                             <td><?php echo $rows['work_role']?></td>
                             <td>
-                                <a href="#">View</a>
+                                <a href="#?id= <?php echo $rows['id']?>" id="view-modal">View</a>
                             </td>
                         </tr>
                     <?php }
@@ -58,6 +58,65 @@ if(isset($_SESSION['id'])){ ?>
             ?>
         </tbody>
     </table>
+
+    <!-- user profile -->
+
+    <?php
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM users WHERE id = '$id'";
+    $result = $conn->query($sql);
+    $rows = $result->fetch_assoc();
+    ?>
+    <div class="view-modal" id="view-popup-modal">
+        <div class="edit-content">
+            <h1>Edit Profile</h1><br><br>
+            <form action="" method="post">
+                <Label>User</Label>
+                <input type="user" name="user" value="<?php echo $rows['username']?>" required><br><br>
+                <Label>Password</Label>
+                <input type="text" name="pass" value="<?php echo $rows['pass']?>" required><br><br>
+                <Label>First Name</Label>
+                <input type="text" name="fname" value="<?php echo $rows['first_name']?>" required><br><br>
+                <Label>Last Name</Label>
+                <input type="text" name="lname" value="<?php echo $rows['last_name']?>" required><br><br>
+                <Label>Age</Label>
+                <input type="number" name="age" value="<?php echo $rows['age']?>" required><br><br>
+                <Label>Gender</Label>
+                 <select name="gender" required>
+                    <option value="Male" <?php echo($rows['gender']== "Male")? 'selected': '';?>>Male</option>
+                    <option value="Female" <?php echo($rows['gender']== "Female")? 'selected': '';?>>Female</option>
+                 </select><br><br>
+                <Label>Address</Label>
+                <input type="text" name="address" value="<?php echo $rows['address']?>" required><br><br>
+                <Label>Work Role</Label>
+                <input type="text" name="work_role" value="<?php echo $rows['work_role']?>" required><br><br>
+                <Label>Mobile #</Label>
+                <input type="number" name="mobnum" value="<?php echo $rows['mobile_no']?>" required><br><br>
+                <button type="submit" name="edit">Edit</button> &nbsp; &nbsp;
+                <button id="cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var viewBtn = document.getElementById("view-modal");
+        var cancelBtn = document.getElementById("cancel");
+        var viewPopupMod = document.getElementById("view-popup-modal");
+
+        viewBtn.onclick = function(){
+            viewPopupMod.style.display = "block";
+        };
+
+        cancelBtn.onclick = function(){
+            viewPopupMod.style.display = "none";
+        };
+
+        // window.onclick = function(sample){
+        //     if(sample.target == viewPopupMod ){
+        //         viewPopupMod.style.display = "none";
+        //     };
+        // }
+    </script>
 </body>
 </html>
 
