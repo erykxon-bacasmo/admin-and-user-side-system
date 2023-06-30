@@ -27,3 +27,38 @@ th, td {
     padding: 8px;
     text-align: center;
 }
+
+/* CSS modal for Admin_index.php */
+.view-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.498);
+    overflow: hidden;
+}
+
+/* CSS modal for user_profile.php */
+.edit-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.498);
+    overflow: hidden;
+}
+
+/* also it is applicable for user_profile.php and admin_index.php modal */
+.edit-content { 
+    width: 40%;
+    margin: 20px auto;
+    padding: 30px 20px;
+    background-color: white;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.508);
+}
