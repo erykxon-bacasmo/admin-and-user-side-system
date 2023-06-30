@@ -77,7 +77,7 @@ if(isset($_SESSION['id'])){ ?>
     }
     
     ?>
-    <div class="edit-modal" id="edit-popup">
+    <div class="edit-modal" id="edit-popup-modal">
         <div class="edit-content">
             <h1>Edit Profile</h1><br><br>
             <form action="" method="post">
@@ -92,7 +92,7 @@ if(isset($_SESSION['id'])){ ?>
                 <Label>Age</Label>
                 <input type="number" name="age" value="<?php echo $rows['age']?>" required><br><br>
                 <Label>Gender</Label>
-                 <select name="gender" <?php echo $rows['gender']?> required>
+                 <select name="gender" required>
                     <option value="Male" <?php echo($rows['gender']== "Male")? 'selected': '';?>>Male</option>
                     <option value="Female" <?php echo($rows['gender']== "Female")? 'selected': '';?>>Female</option>
                  </select><br><br>
@@ -102,10 +102,31 @@ if(isset($_SESSION['id'])){ ?>
                 <input type="text" name="work_role" value="<?php echo $rows['work_role']?>" required><br><br>
                 <Label>Mobile #</Label>
                 <input type="number" name="mobnum" value="<?php echo $rows['mobile_no']?>" required><br><br>
-                <button type="submit" name="edit">Edit</button>
+                <button type="submit" name="edit">Edit</button> &nbsp; &nbsp;
+                <button id="cancel">Cancel</button>
             </form>
         </div>
     </div>
+    <script>
+        var editBtn = document.getElementById("edit-modal");
+        var cancelBtn = document.getElementById("cancel");
+        var editPopupMod = document.getElementById("edit-popup-modal");
+
+        editBtn.onclick = function(){
+            editPopupMod.style.display = "block";
+        };
+
+        cancelBtn.onclick = function(){
+            editPopupMod.style.display = "none";
+        };
+
+        window.onclick = function(sample){
+            if(sample.target == editPopupMod ){
+                editPopupMod.style.display = "none";
+            };
+        }
+    </script>
+    <!-- <script src="main.js"></script> -->
 </body>
 </html>
 
