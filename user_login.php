@@ -39,6 +39,7 @@ if(isset($_POST['login'])){
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+    <!-- login syntax -->
     <h1>User Login</h1><br><br>
     <form action="" method="post">
         <Label>Username</Label>
@@ -47,6 +48,7 @@ if(isset($_POST['login'])){
         <input type="password" name="pass" required><br><br>
         <button type="submit" name="login">Login</button><br><br>
     </form>
+    <!-- portals -->
     <div>
         <h4>Doesn't have account? <a href="user_create.php">Create Here!</a></h4>
     </div>
