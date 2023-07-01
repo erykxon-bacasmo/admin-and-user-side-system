@@ -29,6 +29,7 @@ if(isset($_SESSION['id'])){ ?>
             <h5>Not Edittable</h5>
         <?php }
     ?>
+    <!-- viewing data -->
     <a href="user_index.php">Back</a><br>
     <div class="create_user_content">
         <h3>Create User Account</h3>
@@ -108,6 +109,7 @@ if(isset($_SESSION['id'])){ ?>
         </div>
     </div>
     <script>
+        // this is for the edit pop up
         var editBtn = document.getElementById("edit-modal");
         var cancelBtn = document.getElementById("cancel");
         var editPopupMod = document.getElementById("edit-popup-modal");
@@ -126,7 +128,6 @@ if(isset($_SESSION['id'])){ ?>
             };
         }
     </script>
-    <!-- <script src="main.js"></script> -->
 </body>
 </html>
 
