@@ -5,6 +5,7 @@ require "connection.php";
 $sql = "SELECT * FROM `admin`";
 $result = $conn->query($sql);
 
+
 session_start();
 
 if(isset($_SESSION['id'])){ ?>
@@ -44,8 +45,8 @@ if(isset($_SESSION['id'])){ ?>
                             <td><?php echo $rows['age']?></td>
                             <td><?php echo $rows['gender']?></td>
                             <td><?php echo $rows['work_role']?></td>
-                            <td>
-                                <a href="#?id= <?php echo $rows['id']?>" id="view-modal">View</a>
+                            <td href="?id= <?php echo $rows['id']?>">
+                                <button  id="view-modal">View</button>
                             </td>
                         </tr>
                     <?php }
@@ -62,9 +63,9 @@ if(isset($_SESSION['id'])){ ?>
     <!-- user profile -->
 
     <?php
-    $id = $_GET['id'];
-
-    $sql = "SELECT * FROM users WHERE id = '$id'";
+    // $id = $_GET['id'];
+    
+    $sql = "SELECT * FROM users WHERE id = id";
     $result = $conn->query($sql);
     $rows = $result->fetch_assoc();
     ?>
@@ -103,19 +104,21 @@ if(isset($_SESSION['id'])){ ?>
         var cancelBtn = document.getElementById("cancel");
         var viewPopupMod = document.getElementById("view-popup-modal");
 
-        viewBtn.onclick = function(){
+        viewBtn.onclick =function(){
+            // var id = <?php echo $rows['id']?>
+
             viewPopupMod.style.display = "block";
-        };
+        }
 
         cancelBtn.onclick = function(){
             viewPopupMod.style.display = "none";
         };
 
-        // window.onclick = function(sample){
-        //     if(sample.target == viewPopupMod ){
-        //         viewPopupMod.style.display = "none";
-        //     };
-        // }
+        window.onclick = function(sample){
+            if(sample.target == viewPopupMod ){
+                viewPopupMod.style.display = "none";
+            };
+        }
     </script>
 </body>
 </html>
